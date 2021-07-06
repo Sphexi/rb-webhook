@@ -52,6 +52,7 @@ def webhook():
 				""".format(datetime.date.today(),datetime.datetime.now().time(),request.remote_addr,request.method,json.dumps(dict(request.headers)),request.content_type,json.dumps(request.form.to_dict()))
 			
 			print("form data submitted")
+			print(emailBody)
 		else:
 			abort(400)
 
@@ -60,7 +61,7 @@ def webhook():
 		message['From'] = os.environ.get('FROM-EMAIL')
 		message['To'] = os.environ.get('ALERT-EMAIL')
 		message.set_content = emailBody
-		
+
 		server = smtplib.SMTP_SSL(os.environ.get('SMTP-ADDR'), 465)
 
 		try:
