@@ -29,7 +29,7 @@ def webhook():
 
 
 				Request Body: {}
-				""".format(datetime.date.today(),datetime.datetime.now().time(),request.remote_addr,request.method,json.dumps(dict(request.headers)),request.content-type,json.dumps(request.json))
+				""".format(datetime.date.today(),datetime.datetime.now().time(),request.remote_addr,request.method,json.dumps(dict(request.headers)),request.content_type,json.dumps(request.json))
 			print(request.json)
 			print(json.dumps(request.json))
 		elif request.form is not None:
