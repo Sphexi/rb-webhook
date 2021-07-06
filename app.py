@@ -56,7 +56,7 @@ def webhook():
 
 		message = "Subject: {}\n\n{}".format("Webhook test",emailBody)
 		sendTo = os.environ.get('ALERT-EMAIL')
-		sendFrom = os.environ.get('ALERT-EMAIL')
+		sendFrom = os.environ.get('FROM-EMAIL')
 		server = smtplib.SMTP_SSL(os.environ.get('SMTP-ADDR'), 465)
 
 		try:
