@@ -60,7 +60,7 @@ def webhook():
 		message['Subject'] = 'Recurring Billing Webhook'
 		message['From'] = os.environ.get('FROM-EMAIL')
 		message['To'] = os.environ.get('ALERT-EMAIL')
-		message.set_content = emailBody
+		message.set_content(emailBody)
 
 		server = smtplib.SMTP_SSL(os.environ.get('SMTP-ADDR'), 465)
 
