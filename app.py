@@ -54,8 +54,6 @@ Request Body: {}
 
 		message = "Subject: {}\n\n{}".format("Webhook test",emailBody)
 		server = smtplib.SMTP_SSL(os.environ.get('SMTP-ADDR'), 465)
-		server.starttls()
-		server.ehlo()
 		server.login(os.environ.get('SMTP-USER'), os.environ.get('SMTP-PASS'))
 		server.sendmail(
 		  os.environ.get('ALERT-EMAIL'),
